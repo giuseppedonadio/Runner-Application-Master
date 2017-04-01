@@ -23,12 +23,14 @@ if(isset($_POST['convert']))
     if(isset($_POST['MtoK']) && $_POST['MtoK']=="yes")
     {
       foreach ($runKilometers as $runKilometer) {
-        if ($runKilometer->runKilometer > 0) {
+        if ($runKilometer->lengthKm > 0) {
           $allRun = '
                 <div class="box" style="background-color:#f2f2f2;opacity: 0.8;color:#1a242f;font-weight:bolder;">
                   <div class="date">' . $runKilometer->d . '</div>
                   <div style="clear:both"></div>
-                  <div class="run">' . $runKilometer->runKilometer . ' Km</div>
+                  <div class="run">' . $runKilometer->lengthKm . ' ' . $runKilometer->unitKm . '</div>
+                  <div style="clear:both"></div>
+                  <div class="pace">' . $runKilometer->kmMinPace . ':' . $runKilometer->kmSecPace . ' Min/Km</div>
                 </div>';
           $allRuns[] = new AllRun($allRun);
         } else {
@@ -36,7 +38,7 @@ if(isset($_POST['convert']))
                 <div class="box">
                   <div class="date">' . $runKilometer->d . '</div>
                   <div style="clear:both"></div>
-                  <div class="run">Rest</div>
+                  <div class="run">' . $runKilometer->rSk . ' ' . $runKilometer->unitRunKm . '</div>
                 </div>';
           $allRuns[] = new AllRun($allRun);
         }

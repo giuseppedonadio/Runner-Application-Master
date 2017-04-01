@@ -53,7 +53,7 @@ foreach ($runs as $run) {
   }else{
     $pace = 0;
   }
-
+  
   $minutesMile = floor($pace);
   $remainingMinutes = $pace - $minutesMile;
   $secondsMile = $remainingMinutes * 60;
